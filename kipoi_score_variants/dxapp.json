@@ -1,0 +1,96 @@
+{
+  "name": "kipoi_score_variants",
+  "title": "kipoi score variants",
+  "summary": "kipoi_score_variants",
+  "dxapi": "1.0.0",
+  "version": "0.0.1",
+  "outputSpec": [
+    {
+      "name": "output_vcf_file",
+      "label": "annotated vcf files",
+      "help": "",
+      "class": "file",
+      "patterns": ["*.vcf.gz","*.tsv"]
+    }
+  ],
+  "inputSpec": [
+    {
+      "name": "model",
+      "label": "model",
+      "class": "string",
+      "optional": false,
+      "help": "model name"
+    },
+    { 
+      "name": "gtf_file",
+      "lable": "gtf_file",
+      "class": "file",
+      "optional": true,
+      "help": "input gtf file"
+    },
+    { 
+      "name": "fasta_file",
+      "lable": "fasta_file",
+      "class": "file",
+      "optional": false,
+      "help": "input fasta file"
+    },
+    { 
+      "name": "vcf_file",
+      "lable": "input_vcf_file",
+      "class": "file",
+      "optional": false,
+      "help": "input vcf file"
+    },
+    { 
+      "name": "output_prefix",
+      "lable": "ouput vcf file name",
+      "class": "string",
+      "optional": true,
+      "default": "sample",
+      "help": "prefix used for output"
+    },
+    { 
+      "name": "batch_size",
+      "lable": "batch size",
+      "class": "int",
+      "optional": true,
+      "default": 32,
+      "help": "batch size"
+    },
+    { 
+      "name": "num_workers",
+      "lable": "number of workers",
+      "class": "int",
+      "optional": true,
+      "default": 16,
+      "help": "number of workers"
+    }
+  ],
+  "runSpec": {
+    "interpreter": "bash",
+    "file": "src/run.sh",
+    "systemRequirements": {
+      "*": {
+        "instanceType": "mem1_ssd1_x16"
+      }
+    },
+    "distribution": "Ubuntu",
+    "release": "16.04",
+    "timeoutPolicy": {
+      "*": {
+        "hours": 120 
+      }
+    }
+  },
+  "access": {
+    "project": "CONTRIBUTE",
+    "network": [
+      "*"
+    ]
+  },
+  "regionalOptions": {
+    "aws:us-east-1": { "assetDepends": [{"id": "record-FG85X400GY5V0zY10jQQ5XP9"}]}
+  },
+  "openSource": true
+}

@@ -1,0 +1,45 @@
+{
+  "name": "_kipoi_model_zoo",
+  "title": "Demostrate Kipoi Model Zoo",
+  "summary": "Demostrate Kipoi Model Zoo",
+  "dxapi": "1.0.0",
+  "version": "0.0.1",
+  "outputSpec": [],
+  "inputSpec": [
+    {
+      "name": "model",
+      "label": "model",
+      "class": "string",
+      "optional": false,
+      "default": "Basset",
+      "help": ""
+    }
+  ],
+  "runSpec": {
+    "interpreter": "bash",
+    "file": "src/setup.sh",
+    "systemRequirements": {
+      "*": {
+        "instanceType": "mem1_ssd1_x4"
+      }
+    },
+    "distribution": "Ubuntu",
+    "release": "16.04",
+    "timeoutPolicy": {
+      "*": {
+        "hours": 12 
+      }
+    }
+  },
+  "access": {
+    "project": "CONTRIBUTE",
+    "network": [
+      "*"
+    ]
+  },
+  "regionalOptions": {
+    "aws:us-east-1": { "assetDepends": [{"id": "record-FG85X400GY5V0zY10jQQ5XP9"}]}
+  },
+  "categories": ["hidden_app"],
+  "openSource": true
+}
