@@ -2,6 +2,15 @@
 
 if [ -n "$1" ];
 then 
+	echo Running model: $1
+	MODEL=$1
+else
+	echo 'Model has to be specified. Usage: dx_run_kipoi.sh <model> [<instance type>]'
+	exit 1;
+fi
+
+if [ -n "$2" ];
+then 
 	echo set instance type to $1
 	INSTANCE_TYPE=$1
 else
