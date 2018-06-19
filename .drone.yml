@@ -2,7 +2,7 @@ pipeline:
   trigger-dx-kipoi-test:
     image: cschin/dx-kipoi-test
     environment:
-      - MODLE: Basset
+      - MODLE=Basset
     commands:
       run-vep-example.sh ${MODEL}
     secrect: [DX_KIPOI_TEST_TOKEN]
