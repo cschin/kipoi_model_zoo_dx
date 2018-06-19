@@ -5,7 +5,7 @@ pipeline:
       - MODLE=Basset
     commands:
       run-vep-example.sh ${MODEL}
-    secrect: [DX_KIPOI_TEST_TOKEN]
+    secrets: [DX_KIPOI_TEST_TOKEN]
 
 
 
