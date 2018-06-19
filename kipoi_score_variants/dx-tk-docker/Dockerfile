@@ -6,5 +6,5 @@ RUN wget https://wiki.dnanexus.com/images/files/dx-toolkit-v0.255.0-ubuntu-14.04
 RUN tar zxvf dx-toolkit-v0.255.0-ubuntu-14.04-amd64.tar.gz
 RUN rm dx-toolkit-v0.255.0-ubuntu-14.04-amd64.tar.gz
 RUN git clone https://github.com/cschin/kipoi_model_zoo_dx
-ADD entry.sh /dx-toolkit
-ENTRYPOINT ["/dx-toolkit/entry.sh"]
+ADD run-vep-example.sh /dx-toolkit
+ENV PATH=/dx-toolkit:$PATH
